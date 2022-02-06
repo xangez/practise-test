@@ -18,4 +18,7 @@ public class Course
 
     public int DepartmentID { get; set; }
 
+    public virtual List<Enrollment> Enrollments { get; set; }
+
+
 }

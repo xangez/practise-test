@@ -38,6 +38,13 @@ namespace PracticeTest.Controllers;
         return View(instructorsCourses);
       }
 
+      public async Task<IActionResult> EditInstructor(int ID) 
+      {
+        Instructor instructor = await _context.Instructors.FindAsync(ID);
+
+        return View(instructor);
+      }
+
       [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
       public IActionResult Error()
       {
