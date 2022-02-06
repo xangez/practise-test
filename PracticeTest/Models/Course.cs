@@ -6,6 +6,7 @@ namespace PracticeTest.Models;
 
 public class Course
 {
+    [DatabaseGenerated(DatabaseGeneratedOption.None)]
     public int CourseID { get; set; }
 
 

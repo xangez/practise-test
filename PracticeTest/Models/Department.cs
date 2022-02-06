@@ -6,6 +6,8 @@ namespace PracticeTest.Models;
 
 public class Department
 {
+
+    [DatabaseGenerated(DatabaseGeneratedOption.None)]
     public int DepartmentID { get; set; }
 
     //Name (maximum = 50 characters, minimum length = 3)

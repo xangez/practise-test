@@ -6,6 +6,7 @@ namespace PracticeTest.Models;
 
 public class Instructor
 {
+    [DatabaseGenerated(DatabaseGeneratedOption.None)]
     public int ID { get; set; }
 
     [Required, StringLength(50)]

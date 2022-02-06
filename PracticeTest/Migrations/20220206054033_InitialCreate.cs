@@ -13,8 +13,7 @@ namespace PracticeTest.Migrations
                 name: "Instructors",
                 columns: table => new
                 {
-                    ID = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    ID = table.Column<int>(type: "int", nullable: false),
                     LastName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     FirstMidName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     FullName = table.Column<string>(type: "nvarchar(max)", nullable: true, computedColumnSql: "[FirstMidName] + ' ' + [LastName]"),
@@ -29,8 +28,7 @@ namespace PracticeTest.Migrations
                 name: "Students",
                 columns: table => new
                 {
-                    ID = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    ID = table.Column<int>(type: "int", nullable: false),
                     LastName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     FirstMidName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     FullName = table.Column<string>(type: "nvarchar(max)", nullable: true, computedColumnSql: "[FirstMidName] + ' ' + [LastName]"),
@@ -63,8 +61,7 @@ namespace PracticeTest.Migrations
                 name: "Departments",
                 columns: table => new
                 {
-                    DepartmentID = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    DepartmentID = table.Column<int>(type: "int", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     Budget = table.Column<decimal>(type: "money", nullable: false),
                     StartDate = table.Column<DateTime>(type: "datetime2", nullable: false),
@@ -100,7 +97,7 @@ namespace PracticeTest.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Products",
+                name: "Enrollments",
                 columns: table => new
                 {
                     EnrollmentID = table.Column<int>(type: "int", nullable: false)
@@ -111,9 +108,9 @@ namespace PracticeTest.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Products", x => x.EnrollmentID);
+                    table.PrimaryKey("PK_Enrollments", x => x.EnrollmentID);
                     table.ForeignKey(
-                        name: "FK_Products_Students_StudentID",
+                        name: "FK_Enrollments_Students_StudentID",
                         column: x => x.StudentID,
                         principalTable: "Students",
                         principalColumn: "ID",
@@ -124,8 +121,7 @@ namespace PracticeTest.Migrations
                 name: "Courses",
                 columns: table => new
                 {
-                    CourseID = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    CourseID = table.Column<int>(type: "int", nullable: false),
                     Title = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
                     Credits = table.Column<int>(type: "int", nullable: false),
                     DepartmentID = table.Column<int>(type: "int", nullable: false)
@@ -152,8 +148,8 @@ namespace PracticeTest.Migrations
                 column: "InstructorID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Products_StudentID",
-                table: "Products",
+                name: "IX_Enrollments_StudentID",
+                table: "Enrollments",
                 column: "StudentID");
         }
 
@@ -166,10 +162,10 @@ namespace PracticeTest.Migrations
                 name: "Courses");
 
             migrationBuilder.DropTable(
-                name: "OfficeAssignments");
+                name: "Enrollments");
 
             migrationBuilder.DropTable(
-                name: "Products");
+                name: "OfficeAssignments");
 
             migrationBuilder.DropTable(
                 name: "Departments");

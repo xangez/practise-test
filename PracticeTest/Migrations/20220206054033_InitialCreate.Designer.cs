@@ -12,7 +12,7 @@ using PracticeTest.Data;
 namespace PracticeTest.Migrations
 {
     [DbContext(typeof(PracticeTestContext))]
-    [Migration("20220206034711_InitialCreate")]
+    [Migration("20220206054033_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -27,10 +27,7 @@ namespace PracticeTest.Migrations
             modelBuilder.Entity("PracticeTest.Models.Course", b =>
                 {
                     b.Property<int>("CourseID")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CourseID"), 1L, 1);
 
                     b.Property<int>("Credits")
                         .HasColumnType("int");
@@ -65,10 +62,7 @@ namespace PracticeTest.Migrations
             modelBuilder.Entity("PracticeTest.Models.Department", b =>
                 {
                     b.Property<int>("DepartmentID")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("DepartmentID"), 1L, 1);
 
                     b.Property<decimal>("Budget")
                         .HasColumnType("money");
@@ -113,16 +107,13 @@ namespace PracticeTest.Migrations
 
                     b.HasIndex("StudentID");
 
-                    b.ToTable("Products");
+                    b.ToTable("Enrollments");
                 });
 
             modelBuilder.Entity("PracticeTest.Models.Instructor", b =>
                 {
                     b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"), 1L, 1);
 
                     b.Property<string>("FirstMidName")
                         .IsRequired()
@@ -164,10 +155,7 @@ namespace PracticeTest.Migrations
             modelBuilder.Entity("PracticeTest.Models.Student", b =>
                 {
                     b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"), 1L, 1);
 
                     b.Property<DateTime>("EnrollmentDate")
                         .HasColumnType("datetime2");
