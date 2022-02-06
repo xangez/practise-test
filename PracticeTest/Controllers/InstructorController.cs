@@ -45,6 +45,27 @@ namespace PracticeTest.Controllers;
         return View(instructor);
       }
 
+      [HttpPost]
+      public async Task<IActionResult> EditInstructor(int ID, string LastName, string FirstMidName, DateTime HireDate)
+      {
+        Instructor instructor = await _context.Instructors.FindAsync(ID);
+
+        if (!ModelState.IsValid)
+        {
+          return View(instructor);
+        }
+
+        instructor.LastName = LastName;
+        instructor.FirstMidName = FirstMidName;
+        instructor.HireDate = HireDate;
+
+        await _context.SaveChangesAsync();
+
+        return RedirectToAction(nameof(Index));
+
+
+      }
+
       [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
       public IActionResult Error()
       {
