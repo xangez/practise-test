@@ -19,7 +19,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="HireDate" class="control-label"></label>
-                <input asp-for="HireDate" class="form-control"  type="datetime" value= "@Model.HireDate" asp-format="{0:yyyy-MM-dd}"/>
+                <input asp-for="HireDate" class="form-control"  type="datetime" value= "@Model.HireDate.ToShortDateString()" asp-format="{0:yyyy-MM-dd}"/>
                 <span asp-validation-for="HireDate" class="text-danger"></span>
             </div>
             <div class="form-group">
