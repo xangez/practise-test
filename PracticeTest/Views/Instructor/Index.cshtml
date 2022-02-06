@@ -14,13 +14,15 @@
           <th>@Html.DisplayNameFor(x => x.First().FirstMidName)</th>
           <th>@Html.DisplayNameFor(x => x.First().HireDate)</th>
         </tr>
-        @foreach(var course in Model) {
+        @foreach(var instructor in Model) {
           <tr>
-            <td>@Html.DisplayFor(x => course.ID)</td>
-            <td>@Html.DisplayFor(x => course.LastName)</td>
-            <td>@Html.DisplayFor(x => course.FirstMidName)</td>
-            <td>@Html.DisplayFor(x => course.HireDate)</td>
-
+            <td>@Html.DisplayFor(x => instructor.ID)</td>
+            <td>@Html.DisplayFor(x => instructor.LastName)</td>
+            <td>@Html.DisplayFor(x => instructor.FirstMidName)</td>
+            <td>@Html.DisplayFor(x => instructor.HireDate)</td>
+            <td>
+                <a class="btn btn-primary" asp-action="InstructorsCourses" asp-route-id="@instructor.ID">Courses</a>
+            </td>
           </tr>
         }
     </table>

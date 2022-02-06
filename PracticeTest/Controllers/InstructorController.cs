@@ -19,9 +19,22 @@ namespace PracticeTest.Controllers;
           return View(intructors);
       }
 
+      public async Task<IActionResult> InstructorsCourses(int ID) 
+      {
+        List<CourseAssignment> courseAssignments = _context.CourseAssignments.Where(x => x.InstructorID == ID).ToList();
+        List<Course> courses = new List<Course>();
+        
+        foreach (CourseAssignment courseAssignment in courseAssignments)
+        {
+          courses.Add(await _context.Courses.FindAsync(courseAssignment.CourseID));
+        }
+        return View(courses);
+      }
+
       [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
       public IActionResult Error()
       {
           return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
       }
+
   }

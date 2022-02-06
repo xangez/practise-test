@@ -1,0 +1,29 @@
+@model IEnumerable<Course>
+@{
+    ViewData["Title"] = "Courses";
+}
+
+
+<div class="text-center">
+    <h1 class="display-4">Instructors Courses</h1>
+
+    <table class="table">
+        <tr>
+          <th>@Html.DisplayNameFor(x => x.First().CourseID)</th>
+          <th>@Html.DisplayNameFor(x => x.First().Title)</th>
+          <th>@Html.DisplayNameFor(x => x.First().Credits)</th>
+          <th>@Html.DisplayNameFor(x => x.First().DepartmentID)</th>
+        </tr>
+        @foreach(var course in Model) {
+          <tr>
+            <td>@Html.DisplayFor(x => course.CourseID)</td>
+            <td>@Html.DisplayFor(x => course.Title)</td>
+            <td>@Html.DisplayFor(x => course.Credits)</td>
+            <td>@Html.DisplayFor(x => course.DepartmentID)</td>
+
+          </tr>
+        }
+    </table>
+
+        <a class="btn btn-primary" asp-area="" asp-controller="Instructor" asp-action="Index">Instructors</a>
+</div>
