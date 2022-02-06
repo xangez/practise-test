@@ -1,4 +1,18 @@
+using PracticeTest.Data;
+using Microsoft.EntityFrameworkCore;
+
+
 var builder = WebApplication.CreateBuilder(args);
+
+// Add services to the container.
+builder.Services.AddDbContext<PracticeTestContext>(options =>
+{
+    options.UseSqlServer(builder.Configuration.GetConnectionString(nameof(PracticeTestContext)));
+
+    // Enable lazy loading.
+    options.UseLazyLoadingProxies();
+});
+
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();

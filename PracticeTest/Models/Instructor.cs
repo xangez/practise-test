@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 
@@ -26,7 +24,7 @@ public class Instructor
 
     public virtual List<Department> Departments { get; set; }
 
-    public virtual OfficeAssignment? OfficeAssignment { get; set; }
+    public virtual OfficeAssignment OfficeAssignment { get; set; }
 
     public virtual List<CourseAssignment> CourseAssignments { get; set; }
 
