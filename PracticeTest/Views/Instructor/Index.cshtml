@@ -1,0 +1,27 @@
+@model IEnumerable<Instructor>
+@{
+    ViewData["Title"] = "Instructors";
+}
+
+
+<div class="text-center">
+    <h1 class="display-4">Instructors</h1>
+
+    <table class="table">
+        <tr>
+          <th>@Html.DisplayNameFor(x => x.First().ID)</th>
+          <th>@Html.DisplayNameFor(x => x.First().LastName)</th>
+          <th>@Html.DisplayNameFor(x => x.First().FirstMidName)</th>
+          <th>@Html.DisplayNameFor(x => x.First().HireDate)</th>
+        </tr>
+        @foreach(var course in Model) {
+          <tr>
+            <td>@Html.DisplayFor(x => course.ID)</td>
+            <td>@Html.DisplayFor(x => course.LastName)</td>
+            <td>@Html.DisplayFor(x => course.FirstMidName)</td>
+            <td>@Html.DisplayFor(x => course.HireDate)</td>
+
+          </tr>
+        }
+    </table>
+</div>
