@@ -1,20 +1,20 @@
-@model IEnumerable<Course>
+@model InstructorsCourses
 @{
     ViewData["Title"] = "Courses";
 }
 
 
 <div class="text-center">
-    <h1 class="display-4">Instructors Courses</h1>
+    <h1 class="display-4">@Html.DisplayFor(x => x.Instructor.FullName) Courses</h1>
 
     <table class="table">
         <tr>
-          <th>@Html.DisplayNameFor(x => x.First().CourseID)</th>
-          <th>@Html.DisplayNameFor(x => x.First().Title)</th>
-          <th>@Html.DisplayNameFor(x => x.First().Credits)</th>
-          <th>@Html.DisplayNameFor(x => x.First().DepartmentID)</th>
+          <th>@Html.DisplayNameFor(x => x.Courses.First().CourseID)</th>
+          <th>@Html.DisplayNameFor(x => x.Courses.First().Title)</th>
+          <th>@Html.DisplayNameFor(x => x.Courses.First().Credits)</th>
+          <th>@Html.DisplayNameFor(x => x.Courses.First().DepartmentID)</th>
         </tr>
-        @foreach(var course in Model) {
+        @foreach(var course in Model.Courses) {
           <tr>
             <td>@Html.DisplayFor(x => course.CourseID)</td>
             <td>@Html.DisplayFor(x => course.Title)</td>

@@ -28,7 +28,14 @@ namespace PracticeTest.Controllers;
         {
           courses.Add(await _context.Courses.FindAsync(courseAssignment.CourseID));
         }
-        return View(courses);
+
+        InstructorsCourses instructorsCourses = new InstructorsCourses
+        {
+          Instructor = await _context.Instructors.FindAsync(ID),
+          Courses = courses
+
+        };
+        return View(instructorsCourses);
       }
 
       [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
